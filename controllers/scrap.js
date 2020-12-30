@@ -51,15 +51,15 @@ const scrap = async (req, res) => {
   console.log(typeof (req.body.pro), "body")
   for (var x in productslink) {
     c = c + 1;
-    // try { }
-    await scrapePage(productslink[x], req.body.pro, x);
+    try {
+      await scrapePage(productslink[x], req.body.pro, x);
+    }
+    catch
+    {
+      count = count + 1;
+      console.log("could't get data");
 
-    // catch 
-    // {
-    //   count = count + 1;
-    //   console.log("could't get data");
-
-    // }
+    }
 
   }
   console.log("done")
